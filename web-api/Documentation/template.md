@@ -13,14 +13,14 @@ The following infrastructure is implemented and setup.
 - [x] Entity Framework Core
 - [x] Database access
 - [ ] Lazy loading
-- [ ] Integrationtesting
-- [ ] Unittesting
+- [x] Integrationtesting
+- [x] Unittesting
 - [ ] Versioning
 - [ ] Temporal tables
 - [x] Automapper
 - [ ] OData
 - [x] CORS
-- [ ] Documentation
+- [x] Documentation
 - [x] Correlation ID
 - [ ] Authorization
 - [ ] Authentication

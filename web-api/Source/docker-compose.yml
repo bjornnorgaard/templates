@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   webapi:
-    image: tmpcr.azurecr.io/tmp/api:test
+    image: tmp/api:test
     build:
       context: .
     ports:
@@ -17,8 +17,3 @@ services:
     environment:
       SA_PASSWORD: "Your_password123"
       ACCEPT_EULA: "Y"
-
-
-
-
-

@@ -50,7 +50,8 @@ namespace Api.Web.Filters
                         context.Result = new BadRequestObjectResult(
                             new
                             {
-                                Message = "Unknown exception thrown. Check the logs.", ExceptionMessage = e.Message
+                                Message = "Unknown exception thrown. Check the logs.",
+                                ExceptionMessage = e.Message
                             });
 
                     break;
@@ -58,7 +59,3 @@ namespace Api.Web.Filters
         }
     }
 }
-
-
-
-
