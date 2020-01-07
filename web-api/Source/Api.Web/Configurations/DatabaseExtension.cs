@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Models;
 using Repository;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Api.Web.Configurations
 {
@@ -32,13 +32,13 @@ namespace Api.Web.Configurations
                 var context = serviceScope.ServiceProvider.GetService<Context>();
                 context.Database.Migrate();
 
-                if (!context.Pets.Any())
+                if (!context.Persons.Any())
                 {
-                    var pets = new List<Pet>
+                    var pets = new List<Person>
                     {
-                        new Pet { Name = "Fluffy", Age = 4 },
-                        new Pet { Name = "Kisser", Age = 15 },
-                        new Pet { Name = "Garfield", Age = 7 }
+                        new Person { Name = "Simon Says", Age = 4 },
+                        new Person { Name = "John Doe", Age = 15 },
+                        new Person { Name = "Anders And", Age = 7 }
                     };
                     context.AddRange(pets);
                     context.SaveChanges();

@@ -81,3 +81,7 @@ resharper_arrange_redundant_parentheses_highlighting=suggestion
 resharper_arrange_type_member_modifiers_highlighting=warning
 resharper_redundant_base_qualifier_highlighting=warning
 resharper_suggest_discard_declaration_var_style_highlighting=suggestion
+
+
+
+

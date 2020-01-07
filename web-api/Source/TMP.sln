@@ -14,7 +14,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DB9E372B-974C-42DC-BC5A-BF4479007140}"
 	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
 		docker-compose.yml = docker-compose.yml
 		Dockerfile = Dockerfile
 	EndProjectSection
@@ -25,7 +24,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Arrange", "Test.Arrang
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Unit", "Test.Unit\Test.Unit.csproj", "{A5A8B909-52F0-4905-BD6D-3C1E2323B475}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Nuget", "Api.Nuget\Api.Nuget.csproj", "{2D005EDA-237B-4FC8-AA53-6974EB0C0401}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.Nuget", "Api.Nuget\Api.Nuget.csproj", "{2D005EDA-237B-4FC8-AA53-6974EB0C0401}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,3 +76,5 @@ Global
 		SolutionGuid = {DA28927C-5808-49DC-B4DC-F2A03D072A3E}
 	EndGlobalSection
 EndGlobal
+
+
