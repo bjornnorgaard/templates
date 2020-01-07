@@ -22,8 +22,3 @@ RUN apk add icu-libs
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
 COPY --from=publish /app/out .
 ENTRYPOINT [ "dotnet", "Api.Web.dll" ]
-
-
-
-
-
