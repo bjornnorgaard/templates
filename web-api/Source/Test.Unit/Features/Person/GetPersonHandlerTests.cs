@@ -31,5 +31,3 @@ namespace Test.Unit.Features.Person
         }
     }
 }
-
-

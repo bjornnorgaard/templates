@@ -40,5 +40,3 @@ namespace Test.Integration.Features.Person
         }
     }
 }
-
-

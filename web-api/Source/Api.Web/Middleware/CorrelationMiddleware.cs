@@ -22,10 +22,7 @@ namespace Api.Web.Middleware
 
             context.Request.Headers.TryGetValue(header, out var correlationId);
 
-            if (string.IsNullOrWhiteSpace(correlationId))
-            {
-                correlationId = Guid.NewGuid().ToString();
-            }
+            if (string.IsNullOrWhiteSpace(correlationId)) correlationId = Guid.NewGuid().ToString();
 
             context.Items.Add("CorrelationId", correlationId);
             context.Response.Headers.Add(header, correlationId);
@@ -37,7 +34,3 @@ namespace Api.Web.Middleware
         }
     }
 }
-
-
-
-

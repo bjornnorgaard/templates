@@ -20,7 +20,3 @@ namespace Api.Web.Configurations
         }
     }
 }
-
-
-
-

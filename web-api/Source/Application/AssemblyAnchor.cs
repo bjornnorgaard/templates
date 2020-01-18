@@ -5,7 +5,3 @@ namespace Application
     /// </summary>
     public class AssemblyAnchor { }
 }
-
-
-
-

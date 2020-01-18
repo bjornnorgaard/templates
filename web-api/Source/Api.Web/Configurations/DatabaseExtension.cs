@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -6,24 +8,28 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Models;
 using Repository;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Api.Web.Configurations
 {
     public static class DatabaseExtension
     {
-        public static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddDatabase(this IServiceCollection services,
+                                                     IConfiguration configuration)
         {
             services.AddDbContext<Context>(
-                o => { o.UseSqlServer(configuration.GetConnectionString("DefaultConnection")); });
+                                           o =>
+                                           {
+                                               o.UseSqlServer(configuration
+                                                                  .GetConnectionString("DefaultConnection"));
+                                           });
 
             services.AddScoped<IContext>(ctx => ctx.GetService<Context>());
 
             return services;
         }
 
-        public static IApplicationBuilder UpdateDatabase(this IApplicationBuilder app, IWebHostEnvironment env)
+        public static IApplicationBuilder UpdateDatabase(this IApplicationBuilder app,
+                                                         IWebHostEnvironment env)
         {
             if (env.IsProduction()) return app;
 

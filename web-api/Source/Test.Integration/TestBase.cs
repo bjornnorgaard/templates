@@ -31,7 +31,8 @@ namespace Test.Integration
             Client = TestFixture.Instance.Client;
             Server = TestFixture.Instance.Server;
 
-            var serviceScope = ServiceProvider.GetRequiredService<IServiceScopeFactory>().CreateScope();
+            var serviceScope =
+                ServiceProvider.GetRequiredService<IServiceScopeFactory>().CreateScope();
             Context = serviceScope.ServiceProvider.GetService<Context>();
             Mediator = serviceScope.ServiceProvider.GetService<IMediator>();
 
@@ -55,7 +56,3 @@ namespace Test.Integration
         }
     }
 }
-
-
-
-

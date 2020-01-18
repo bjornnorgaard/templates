@@ -1,5 +1,5 @@
-using Application.Features.Person;
 using System;
+using Application.Features.Person;
 
 namespace Test.Arrange.Features.Person
 {
@@ -16,5 +16,3 @@ namespace Test.Arrange.Features.Person
         }
     }
 }
-
-

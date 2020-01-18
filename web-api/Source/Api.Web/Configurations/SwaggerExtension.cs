@@ -9,11 +9,13 @@ namespace Api.Web.Configurations
         public static IServiceCollection AddSwagger(this IServiceCollection services)
         {
             services.AddSwaggerGen(
-                o =>
-                {
-                    o.CustomSchemaIds(t => t.FullName);
-                    o.SwaggerDoc("v1", new OpenApiInfo { Title = "TMP API", Version = "v1" });
-                });
+                                   o =>
+                                   {
+                                       o.CustomSchemaIds(t => t.FullName);
+                                       o.SwaggerDoc("v1",
+                                                    new OpenApiInfo
+                                                        { Title = "TMP API", Version = "v1" });
+                                   });
 
             return services;
         }
@@ -22,17 +24,13 @@ namespace Api.Web.Configurations
         {
             app.UseSwagger();
             app.UseSwaggerUI(
-                o =>
-                {
-                    o.SwaggerEndpoint("/swagger/v1/swagger.json", "TMP API V1");
-                    o.RoutePrefix = string.Empty;
-                });
+                             o =>
+                             {
+                                 o.SwaggerEndpoint("/swagger/v1/swagger.json", "TMP API V1");
+                                 o.RoutePrefix = string.Empty;
+                             });
 
             return app;
         }
     }
 }
-
-
-
-

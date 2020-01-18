@@ -18,7 +18,8 @@ namespace Api.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<GetAllPerson.Result>> Get([FromQuery] int take = 10, [FromQuery] int skip = 0)
+        public async Task<ActionResult<GetAllPerson.Result>> Get([FromQuery] int take = 10,
+                                                                 [FromQuery] int skip = 0)
         {
             var command = new GetAllPerson.Command { Take = take, Skip = skip };
             var result = await _mediator.Send(command);
@@ -37,7 +38,8 @@ namespace Api.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<CreatePerson.Result>> Post([FromBody] CreatePerson.Command command)
+        public async Task<ActionResult<CreatePerson.Result>> Post(
+            [FromBody] CreatePerson.Command command)
         {
             var result = await _mediator.Send(command);
 
@@ -45,7 +47,9 @@ namespace Api.Web.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<UpdatePerson.Result>> Post(Guid id, [FromBody] UpdatePerson.Command command)
+        public async Task<ActionResult<UpdatePerson.Result>> Post(Guid id,
+                                                                  [FromBody]
+                                                                  UpdatePerson.Command command)
         {
             if (id != command.Id) return BadRequest("Ids not matching");
 
@@ -65,5 +69,3 @@ namespace Api.Web.Controllers
         }
     }
 }
-
-

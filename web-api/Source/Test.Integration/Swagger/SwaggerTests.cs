@@ -20,7 +20,3 @@ namespace Test.Integration.Swagger
         }
     }
 }
-
-
-
-

@@ -22,7 +22,3 @@ namespace Test.Integration.Middleware
         }
     }
 }
-
-
-
-

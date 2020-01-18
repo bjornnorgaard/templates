@@ -7,12 +7,12 @@ namespace Test.Unit.Features.Person
 {
     public class DeletePersonValidatorTests : TestBase
     {
-        private readonly DeletePerson.Validator _uut;
-
         public DeletePersonValidatorTests()
         {
             _uut = new DeletePerson.Validator();
         }
+
+        private readonly DeletePerson.Validator _uut;
 
         [Fact]
         public void ShouldHaveValidationError_WhenNameIsInvalid()
@@ -37,5 +37,3 @@ namespace Test.Unit.Features.Person
         }
     }
 }
-
-

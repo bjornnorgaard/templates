@@ -39,7 +39,3 @@ namespace Test.Integration.Middleware
         }
     }
 }
-
-
-
-

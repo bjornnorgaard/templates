@@ -19,11 +19,10 @@ namespace Api.Nuget.Person
         Task<CreatePerson.Result> CreatePersonAsync([Body] CreatePerson.Command command);
 
         [Put("/api/v1/person/{id}")]
-        Task<UpdatePerson.Result> UpdatePersonAsync([Path] Guid id, [Body] UpdatePerson.Command command);
+        Task<UpdatePerson.Result> UpdatePersonAsync([Path] Guid id,
+                                                    [Body] UpdatePerson.Command command);
 
         [Delete("/api/v1/person/{id}")]
         Task<DeletePerson.Result> DeletePersonAsync([Path] Guid id);
     }
 }
-
-

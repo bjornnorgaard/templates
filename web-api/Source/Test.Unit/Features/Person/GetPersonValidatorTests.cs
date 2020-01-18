@@ -7,12 +7,12 @@ namespace Test.Unit.Features.Person
 {
     public class GetPersonValidatorTests : TestBase
     {
-        private readonly GetPerson.Validator _uut;
-
         public GetPersonValidatorTests()
         {
             _uut = new GetPerson.Validator();
         }
+
+        private readonly GetPerson.Validator _uut;
 
         [Fact]
         public void ShouldHaveValidationError_WhenNameIsInvalid()
@@ -37,5 +37,3 @@ namespace Test.Unit.Features.Person
         }
     }
 }
-
-

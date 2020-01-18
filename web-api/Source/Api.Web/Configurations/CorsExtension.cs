@@ -1,7 +1,7 @@
+using Api.Web.Options;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Api.Web.Options;
 
 namespace Api.Web.Configurations
 {
@@ -9,24 +9,26 @@ namespace Api.Web.Configurations
     {
         private static readonly string _defaultPolicy = "DefaultCorsPolicy";
 
-        public static IServiceCollection AddCorsPolicy(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddCorsPolicy(this IServiceCollection services,
+                                                       IConfiguration configuration)
         {
             var corsOptions = new CorsOptions();
             configuration.GetSection(nameof(CorsOptions)).Bind(corsOptions);
 
             services.AddCors(
-                options =>
-                {
-                    options.AddPolicy(
-                        _defaultPolicy,
-                        builder =>
-                        {
-                            builder.WithOrigins(corsOptions.AllowedOrigins)
-                                   .AllowAnyHeader()
-                                   .AllowAnyMethod()
-                                   .AllowCredentials();
-                        });
-                });
+                             options =>
+                             {
+                                 options.AddPolicy(
+                                                   _defaultPolicy,
+                                                   builder =>
+                                                   {
+                                                       builder.WithOrigins(corsOptions
+                                                                               .AllowedOrigins)
+                                                              .AllowAnyHeader()
+                                                              .AllowAnyMethod()
+                                                              .AllowCredentials();
+                                                   });
+                             });
 
             return services;
         }
@@ -39,7 +41,3 @@ namespace Api.Web.Configurations
         }
     }
 }
-
-
-
-

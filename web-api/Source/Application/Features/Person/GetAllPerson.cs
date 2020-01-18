@@ -1,11 +1,11 @@
-using FluentValidation;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using Repository;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using FluentValidation;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
+using Repository;
 
 namespace Application.Features.Person
 {
@@ -44,9 +44,9 @@ namespace Application.Features.Person
             public async Task<Result> Handle(Command request, CancellationToken cancellationToken)
             {
                 var persons = await _context.Set<Models.Person>()
-                                             .Skip(request.Skip)
-                                             .Take(request.Take)
-                                             .ToListAsync(cancellationToken);
+                                            .Skip(request.Skip)
+                                            .Take(request.Take)
+                                            .ToListAsync(cancellationToken);
 
                 var result = new Result { Persons = persons };
 
@@ -55,5 +55,3 @@ namespace Application.Features.Person
         }
     }
 }
-
-

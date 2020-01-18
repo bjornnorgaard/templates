@@ -1,8 +1,8 @@
+using System.Threading.Tasks;
 using Application.Features.Person;
 using FluentAssertions;
 using Infrastructure.HttpExtensions;
 using Microsoft.AspNetCore.Http;
-using System.Threading.Tasks;
 using Test.Arrange.Features.Person;
 using Xunit;
 

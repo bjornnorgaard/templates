@@ -1,3 +1,4 @@
+using Api.Web.Configurations;
 using Application;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
@@ -5,7 +6,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Api.Web.Configurations;
 
 namespace Api.Web
 {
@@ -69,7 +69,3 @@ namespace Api.Web
         }
     }
 }
-
-
-
-

@@ -45,14 +45,16 @@ namespace Api.Web.Filters
                     _logger.LogError(e, "Unknown exception thrown");
 
                     if (_environment.IsProduction())
-                        context.Result = new BadRequestObjectResult("An error occured. Check the logs.");
+                        context.Result =
+                            new BadRequestObjectResult("An error occured. Check the logs.");
                     else
                         context.Result = new BadRequestObjectResult(
-                            new
-                            {
-                                Message = "Unknown exception thrown. Check the logs.",
-                                ExceptionMessage = e.Message
-                            });
+                                                                    new
+                                                                    {
+                                                                        Message =
+                                                                            "Unknown exception thrown. Check the logs.",
+                                                                        ExceptionMessage = e.Message
+                                                                    });
 
                     break;
             }

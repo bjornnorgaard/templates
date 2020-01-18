@@ -1,9 +1,9 @@
+using System.Threading;
+using System.Threading.Tasks;
 using AutoMapper;
 using FluentValidation;
 using MediatR;
 using Repository;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Application.Features.Person
 {

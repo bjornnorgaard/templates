@@ -10,7 +10,8 @@ namespace Api.Web.Middleware
         private readonly ILogger<RequestLoggerMiddleware> _logger;
         private readonly RequestDelegate _next;
 
-        public RequestLoggerMiddleware(RequestDelegate next, ILogger<RequestLoggerMiddleware> logger)
+        public RequestLoggerMiddleware(RequestDelegate next,
+                                       ILogger<RequestLoggerMiddleware> logger)
         {
             _next = next;
             _logger = logger;
@@ -29,7 +30,8 @@ namespace Api.Web.Middleware
 
             var responseData = new
             {
-                context.Request.Method, Path = context.Request.Path.Value, context.Response.StatusCode
+                context.Request.Method, Path = context.Request.Path.Value,
+                context.Response.StatusCode
             };
 
             var level = LogLevel.Information;
@@ -41,7 +43,3 @@ namespace Api.Web.Middleware
         }
     }
 }
-
-
-
-

@@ -16,14 +16,16 @@ namespace Api.Web.Configurations
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationPipeline<,>));
 
             // Add validators
-            var validators = AssemblyScanner.FindValidatorsInAssemblies(new[] { typeof(AssemblyAnchor).Assembly });
-            validators.ForEach(validator => services.AddTransient(validator.InterfaceType, validator.ValidatorType));
+            var validators =
+                AssemblyScanner.FindValidatorsInAssemblies(new[]
+                {
+                    typeof(AssemblyAnchor).Assembly
+                });
+            validators.ForEach(validator =>
+                                   services.AddTransient(validator.InterfaceType,
+                                                         validator.ValidatorType));
 
             return services;
         }
     }
 }
-
-
-
-

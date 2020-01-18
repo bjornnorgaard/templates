@@ -22,10 +22,7 @@ namespace Test.Integration.Setup
 
                 lock (_padlock)
                 {
-                    if (_instance == null)
-                    {
-                        _instance = new TestFixture();
-                    }
+                    if (_instance == null) _instance = new TestFixture();
                 }
 
                 return _instance;
@@ -36,7 +33,8 @@ namespace Test.Integration.Setup
         {
             var connectionStringBuilder = new SqliteConnectionStringBuilder
             {
-                DataSource = "IntegrationTests", Mode = SqliteOpenMode.Memory, Cache = SqliteCacheMode.Shared
+                DataSource = "IntegrationTests", Mode = SqliteOpenMode.Memory,
+                Cache = SqliteCacheMode.Shared
             };
 
             Connection = new SqliteConnection(connectionStringBuilder.ToString());
@@ -55,7 +53,3 @@ namespace Test.Integration.Setup
         }
     }
 }
-
-
-
-

@@ -1,5 +1,5 @@
-using Microsoft.Extensions.DependencyInjection;
 using Api.Web.Filters;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Api.Web.Configurations
 {
@@ -12,7 +12,3 @@ namespace Api.Web.Configurations
         }
     }
 }
-
-
-
-

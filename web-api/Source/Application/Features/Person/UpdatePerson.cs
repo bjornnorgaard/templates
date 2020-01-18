@@ -1,12 +1,12 @@
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 using AutoMapper;
 using FluentValidation;
 using Infrastructure.Exceptions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Repository;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Application.Features.Person
 {
@@ -46,12 +46,11 @@ namespace Application.Features.Person
 
             public async Task<Result> Handle(Command request, CancellationToken cancellationToken)
             {
-                var person = await _context.Set<Models.Person>().FirstOrDefaultAsync(p => p.Id == request.Id, cancellationToken);
+                var person = await _context.Set<Models.Person>()
+                                           .FirstOrDefaultAsync(p => p.Id == request.Id,
+                                                                cancellationToken);
 
-                if (person == null)
-                {
-                    throw new NotFoundException(request.Id, typeof(Models.Person));
-                }
+                if (person == null) throw new NotFoundException(request.Id, typeof(Models.Person));
 
                 person = _mapper.Map(request, person);
 
@@ -64,5 +63,3 @@ namespace Application.Features.Person
         }
     }
 }
-
-

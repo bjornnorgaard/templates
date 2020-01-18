@@ -11,5 +11,3 @@ namespace Application.Features.Person
         }
     }
 }
-
-

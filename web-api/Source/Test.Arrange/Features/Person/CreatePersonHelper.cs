@@ -15,5 +15,3 @@ namespace Test.Arrange.Features.Person
         }
     }
 }
-
-

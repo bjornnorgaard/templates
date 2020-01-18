@@ -8,23 +8,23 @@ namespace Repository.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Persons",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(nullable: false),
-                    Name = table.Column<string>(maxLength: 15, nullable: true),
-                    Age = table.Column<int>(maxLength: 5, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Persons", x => x.Id);
-                });
+                                         "Persons",
+                                         table => new
+                                         {
+                                             Id = table.Column<Guid>(),
+                                             Name = table.Column<string>(maxLength: 15,
+                                                                         nullable: true),
+                                             Age = table.Column<int>(maxLength: 5)
+                                         },
+                                         constraints: table =>
+                                         {
+                                             table.PrimaryKey("PK_Persons", x => x.Id);
+                                         });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Persons");
+            migrationBuilder.DropTable("Persons");
         }
     }
 }

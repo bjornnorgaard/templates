@@ -1,15 +1,16 @@
 using System;
+using Api.Web.Options;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using Serilog.Exceptions;
-using Api.Web.Options;
 
 namespace Api.Web.Configurations
 {
     public static class LoggingExtension
     {
-        public static IServiceCollection AddLogger(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddLogger(this IServiceCollection services,
+                                                   IConfiguration configuration)
         {
             var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
@@ -22,7 +23,8 @@ namespace Api.Web.Configurations
                          .Enrich.WithProperty("system", o.SystemName)
                          .Enrich.WithExceptionDetails()
                          .Enrich.FromLogContext()
-                         .WriteTo.RollingFile($"C:/logs/{o.SystemName}/{o.SystemName}-{environment}-{{Date}}.txt")
+                         .WriteTo
+                         .RollingFile($"C:/logs/{o.SystemName}/{o.SystemName}-{environment}-{{Date}}.txt")
                          .WriteTo.Console()
                          .CreateLogger();
 
@@ -30,7 +32,3 @@ namespace Api.Web.Configurations
         }
     }
 }
-
-
-
-

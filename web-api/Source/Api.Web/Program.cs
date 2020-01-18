@@ -15,7 +15,10 @@ namespace Api.Web
         {
             return Host.CreateDefaultBuilder(args)
                        .UseSerilog()
-                       .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+                       .ConfigureWebHostDefaults(webBuilder =>
+                       {
+                           webBuilder.UseStartup<Startup>();
+                       });
         }
     }
 }

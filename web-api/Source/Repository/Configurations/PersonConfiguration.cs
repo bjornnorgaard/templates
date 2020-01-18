@@ -14,5 +14,3 @@ namespace Repository.Configurations
         }
     }
 }
-
-

@@ -1,3 +1,4 @@
+using Api.Web;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Data.Sqlite;
@@ -5,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Repository;
-using Api.Web;
 
 namespace Test.Integration.Setup
 {
@@ -17,22 +17,23 @@ namespace Test.Integration.Setup
         {
             var connectionStringBuilder = new SqliteConnectionStringBuilder
             {
-                DataSource = "IntegrationTests", Mode = SqliteOpenMode.Memory, Cache = SqliteCacheMode.Shared
+                DataSource = "IntegrationTests", Mode = SqliteOpenMode.Memory,
+                Cache = SqliteCacheMode.Shared
             };
             var connectionString = connectionStringBuilder.ToString();
             var connection = new SqliteConnection(connectionString);
 
             services.AddTransient(
-                serviceProvider =>
-                {
-                    var optionsBuilder = new DbContextOptionsBuilder<Context>();
-                    optionsBuilder.UseSqlite(connection);
+                                  serviceProvider =>
+                                  {
+                                      var optionsBuilder = new DbContextOptionsBuilder<Context>();
+                                      optionsBuilder.UseSqlite(connection);
 
-                    var dbContext = new Context(optionsBuilder.Options);
-                    dbContext.Database.AutoTransactionsEnabled = false;
+                                      var dbContext = new Context(optionsBuilder.Options);
+                                      dbContext.Database.AutoTransactionsEnabled = false;
 
-                    return dbContext;
-                });
+                                      return dbContext;
+                                  });
 
             services.AddScoped<IContext>(ctx => ctx.GetService<Context>());
         }
@@ -49,7 +50,3 @@ namespace Test.Integration.Setup
         }
     }
 }
-
-
-
-

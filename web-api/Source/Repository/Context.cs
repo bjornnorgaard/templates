@@ -6,7 +6,6 @@ namespace Repository
     public class Context : DbContext, IContext
     {
         public DbSet<Person> Persons { get; set; }
-        
         public Context(DbContextOptions options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

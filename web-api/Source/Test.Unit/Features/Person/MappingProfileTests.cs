@@ -1,5 +1,4 @@
 using System;
-using Application.Features.Person;
 using AutoMapper;
 using FluentAssertions;
 using Xunit;
@@ -22,5 +21,3 @@ namespace Test.Unit.Features.Person
         }
     }
 }
-
-

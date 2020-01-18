@@ -1,5 +1,5 @@
-using Microsoft.AspNetCore.Builder;
 using Api.Web.Middleware;
+using Microsoft.AspNetCore.Builder;
 
 namespace Api.Web.Configurations
 {
@@ -16,7 +16,3 @@ namespace Api.Web.Configurations
         }
     }
 }
-
-
-
-

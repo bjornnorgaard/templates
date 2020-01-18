@@ -10,7 +10,8 @@ namespace Api.Web.Middleware
         private readonly ILogger<SlowRequestLoggerMiddleware> _logger;
         private readonly RequestDelegate _next;
 
-        public SlowRequestLoggerMiddleware(RequestDelegate next, ILogger<SlowRequestLoggerMiddleware> logger)
+        public SlowRequestLoggerMiddleware(RequestDelegate next,
+                                           ILogger<SlowRequestLoggerMiddleware> logger)
         {
             _next = next;
             _logger = logger;
@@ -27,16 +28,14 @@ namespace Api.Web.Middleware
             {
                 var data = new
                 {
-                    Path = context.Request.Path.Value, context.Response.StatusCode, Elapsed = sw.ElapsedMilliseconds
+                    Path = context.Request.Path.Value, context.Response.StatusCode,
+                    Elapsed = sw.ElapsedMilliseconds
                 };
 
-                var template = "Request {CorrelationId} was slow to respond ({Elapsed} ms) {@SlowRequestData}";
+                var template =
+                    "Request {CorrelationId} was slow to respond ({Elapsed} ms) {@SlowRequestData}";
                 _logger.LogWarning(template, correlationId, sw.ElapsedMilliseconds, data);
             }
         }
     }
 }
-
-
-
-

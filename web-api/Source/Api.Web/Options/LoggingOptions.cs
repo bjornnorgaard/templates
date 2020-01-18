@@ -5,7 +5,3 @@ namespace Api.Web.Options
         public string SystemName { get; set; } = "No system name provided";
     }
 }
-
-
-
-

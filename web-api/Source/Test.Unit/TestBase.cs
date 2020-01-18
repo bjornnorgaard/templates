@@ -25,7 +25,8 @@ namespace Test.Unit
 
             var connectionStringBuilder = new SqliteConnectionStringBuilder
             {
-                DataSource = "UnitTests", Mode = SqliteOpenMode.Memory, Cache = SqliteCacheMode.Shared
+                DataSource = "UnitTests", Mode = SqliteOpenMode.Memory,
+                Cache = SqliteCacheMode.Shared
             };
             var connectionString = connectionStringBuilder.ToString();
             var connection = new SqliteConnection(connectionString);
@@ -56,7 +57,3 @@ namespace Test.Unit
         }
     }
 }
-
-
-
-

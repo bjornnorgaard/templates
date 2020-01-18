@@ -1,7 +1,7 @@
-using Newtonsoft.Json;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Infrastructure.HttpExtensions
 {
@@ -15,10 +15,9 @@ namespace Infrastructure.HttpExtensions
             return deserializeObject;
         }
 
-        public static async Task<HttpResponseMessage> PostAsJsonAsync(
-            this HttpClient httpClient,
-            string requestUri,
-            object model)
+        public static async Task<HttpResponseMessage> PostAsJsonAsync(this HttpClient httpClient,
+                                                                      string requestUri,
+                                                                      object model)
         {
             var json = JsonConvert.SerializeObject(model);
             var stringContent = new StringContent(json, Encoding.UTF8, "application/json");
@@ -26,10 +25,9 @@ namespace Infrastructure.HttpExtensions
             return await httpClient.PostAsync(requestUri, stringContent);
         }
 
-        public static async Task<HttpResponseMessage> PutAsJsonAsync(
-            this HttpClient httpClient,
-            string requestUri,
-            object model)
+        public static async Task<HttpResponseMessage> PutAsJsonAsync(this HttpClient httpClient,
+                                                                     string requestUri,
+                                                                     object model)
         {
             var json = JsonConvert.SerializeObject(model);
             var stringContent = new StringContent(json, Encoding.UTF8, "application/json");
