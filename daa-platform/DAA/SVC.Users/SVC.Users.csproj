@@ -2,14 +2,11 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>Users</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="RestEase" Version="1.4.10" />
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="5.2.0" />
-    </ItemGroup>
-
-    <ItemGroup>
+      <ProjectReference Include="..\COM.Models\COM.Models.csproj" />
       <ProjectReference Include="..\DAA.Platform\DAA.Platform.csproj" />
     </ItemGroup>
 

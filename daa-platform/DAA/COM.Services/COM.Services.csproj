@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>Services</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="RestEase" Version="1.4.10" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\COM.Models\COM.Models.csproj" />
+    </ItemGroup>
+
+</Project>

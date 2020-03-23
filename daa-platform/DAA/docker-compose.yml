@@ -1,19 +1,32 @@
 ﻿version: '3.7'
 
 services:
-  webapi:
-    image: tmp/api:test
+  gateway:
+    image: daa/gateway:test
     build:
       context: .
+      dockerfile: ./SVC.Gateway/Dockerfile
     ports:
       - "5000:80"
-    depends_on:
-      - database
+    # depends_on:
+    #   - database
     environment:
       ConnectionStrings__DefaultConnection: "Server=database;Database=master;User=sa;Password=Your_password123;"
       ASPNETCORE_ENVIRONMENT: "Development"
-  database:
-    image: "mcr.microsoft.com/mssql/server:2017-CU14-ubuntu"
+  users:
+    image: daa/users:test
+    build:
+      context: .
+      dockerfile: ./SVC.Users/Dockerfile
+    ports:
+      - "5001:80"
+    # depends_on:
+    #   - database
     environment:
-      SA_PASSWORD: "Your_password123"
-      ACCEPT_EULA: "Y"
+      ConnectionStrings__DefaultConnection: "Server=database;Database=master;User=sa;Password=Your_password123;"
+      ASPNETCORE_ENVIRONMENT: "Development"
+  # database:
+  #   image: "mcr.microsoft.com/mssql/server:2017-CU14-ubuntu"
+  #   environment:
+  #     SA_PASSWORD: "Your_password123"
+  #     ACCEPT_EULA: "Y"

@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using RestEase;
+using Services;
 
 namespace Gateway
 {
@@ -19,6 +21,9 @@ namespace Gateway
         {
             services.AddControllers();
             services.AddDaaPlatform(Configuration);
+
+            var userService = RestClient.For<IUserService>("http://users");
+            services.AddSingleton(typeof(IUserService), userService);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

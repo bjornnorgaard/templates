@@ -8,7 +8,7 @@ namespace DAA.Platform
     public static class StartupExtensions
     {
         public static IServiceCollection AddDaaPlatform(this IServiceCollection services,
-                                                IConfiguration configuration)
+                                                        IConfiguration configuration)
         {
             services.AddDasSwagger(configuration);
             services.AddDasLogging(configuration);
@@ -17,7 +17,7 @@ namespace DAA.Platform
         }
 
         public static IApplicationBuilder UseDaaPlatform(this IApplicationBuilder app,
-                                                 IConfiguration configuration)
+                                                         IConfiguration configuration)
         {
             app.UseDasSwagger(configuration);
             app.UseDasMiddleware();
