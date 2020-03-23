@@ -22,6 +22,7 @@ namespace Gateway
             services.AddControllers();
             services.AddDaaPlatform(Configuration);
 
+            // TODO: Clean me up...
             var userService = RestClient.For<IUserService>("http://users");
             services.AddSingleton(typeof(IUserService), userService);
         }
