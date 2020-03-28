@@ -1,15 +1,17 @@
-﻿using DAA.Platform.Options;
+﻿using System;
+using DAA.Platform.Options;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using Serilog;
 
 namespace DAA.Platform.Configurations
 {
     public static class SwaggerConfiguration
     {
-        public static IServiceCollection AddDasSwagger(this IServiceCollection services,
-                                                       IConfiguration configuration)
+        public static void AddDasSwagger(this IServiceCollection services,
+                                         IConfiguration configuration)
         {
             var options = new ApplicationOptions(configuration);
 
@@ -21,12 +23,10 @@ namespace DAA.Platform.Configurations
                     Title = options.ApplicationName, Version = "v1"
                 });
             });
-
-            return services;
         }
 
-        public static IApplicationBuilder UseDasSwagger(this IApplicationBuilder app,
-                                                        IConfiguration configuration)
+        public static void UseDasSwagger(this IApplicationBuilder app,
+                                         IConfiguration configuration)
         {
             var options = new ApplicationOptions(configuration);
 
@@ -36,8 +36,6 @@ namespace DAA.Platform.Configurations
                 o.SwaggerEndpoint("/swagger/v1/swagger.json", options.ApplicationName);
                 o.RoutePrefix = string.Empty;
             });
-
-            return app;
         }
     }
 }

@@ -6,25 +6,30 @@ services:
     build:
       context: .
       dockerfile: ./SVC.Gateway/Dockerfile
+      args:
+        APPNAME: Gateway
     ports:
       - "5000:80"
-    # depends_on:
-    #   - database
+    depends_on:
+      # - database
+      - users
     environment:
       ConnectionStrings__DefaultConnection: "Server=database;Database=master;User=sa;Password=Your_password123;"
-      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_ENVIRONMENT: "Local"
   users:
     image: daa/users:test
     build:
       context: .
       dockerfile: ./SVC.Users/Dockerfile
+      args:
+        APPNAME: Users
     ports:
       - "5001:80"
     # depends_on:
     #   - database
     environment:
       ConnectionStrings__DefaultConnection: "Server=database;Database=master;User=sa;Password=Your_password123;"
-      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_ENVIRONMENT: "Local"
   # database:
   #   image: "mcr.microsoft.com/mssql/server:2017-CU14-ubuntu"
   #   environment:
