@@ -10,8 +10,6 @@ RUN dotnet restore
 COPY . .
 RUN dotnet build
 
-RUN dotnet test
-
 FROM build AS publish
 RUN dotnet publish SVC.Users/SVC.Users.csproj -c Release -o out
 

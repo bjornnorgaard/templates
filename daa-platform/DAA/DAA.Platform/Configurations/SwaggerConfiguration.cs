@@ -1,10 +1,8 @@
-﻿using System;
-using DAA.Platform.Options;
+﻿using DAA.Platform.Options;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using Serilog;
 
 namespace DAA.Platform.Configurations
 {
