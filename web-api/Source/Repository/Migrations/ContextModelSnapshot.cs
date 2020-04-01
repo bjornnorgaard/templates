@@ -32,6 +32,16 @@ namespace Repository.Migrations
                                      .HasMaxLength(15);
 
                                     b.HasKey("Id");
+                                    
+                                    b.Property<DateTime>("SysEndTime")
+                                     .ValueGeneratedOnAddOrUpdate()
+                                     .HasDefaultValue(DateTime.MaxValue)
+                                     .HasColumnType("datetime2");
+
+                                    b.Property<DateTime>("SysStartTime")
+                                     .ValueGeneratedOnAddOrUpdate()
+                                     .HasDefaultValue(DateTime.Now)
+                                     .HasColumnType("datetime2");
 
                                     b.ToTable("Persons");
                                 });

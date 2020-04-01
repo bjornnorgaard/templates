@@ -16,13 +16,8 @@ namespace Api.Web.Configurations
         public static IServiceCollection AddDatabase(this IServiceCollection services,
                                                      IConfiguration configuration)
         {
-            services.AddDbContext<Context>(
-                                           o =>
-                                           {
-                                               o.UseSqlServer(configuration
-                                                                  .GetConnectionString("DefaultConnection"));
-                                           });
-
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<Context>(o => o.UseSqlServer(connectionString));
             services.AddScoped<IContext>(ctx => ctx.GetService<Context>());
 
             return services;

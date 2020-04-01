@@ -2,7 +2,7 @@ using System;
 
 namespace Models
 {
-    public class Person
+    public class Person : TemporalEntity
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
