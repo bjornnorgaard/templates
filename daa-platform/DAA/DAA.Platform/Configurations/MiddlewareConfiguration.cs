@@ -5,7 +5,7 @@ namespace DAA.Platform.Configurations
 {
     public static class MiddlewareConfiguration
     {
-        public static void UseDasMiddleware(this IApplicationBuilder app)
+        public static void UseDaaMiddleware(this IApplicationBuilder app)
         {
             // Order is important!
             app.UseMiddleware<CorrelationMiddleware>();

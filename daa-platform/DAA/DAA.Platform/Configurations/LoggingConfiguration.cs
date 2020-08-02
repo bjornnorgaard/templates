@@ -8,7 +8,7 @@ namespace DAA.Platform.Configurations
 {
     public static class LoggingConfiguration
     {
-        public static void AddDasLogging(this IServiceCollection services,
+        public static void AddDaaLogging(this IServiceCollection services,
                                          IConfiguration configuration)
         {
             Console.WriteLine("Configuring logger...");

@@ -10,8 +10,8 @@ namespace DAA.Platform
         public static IServiceCollection AddDaaPlatform(this IServiceCollection services,
                                                         IConfiguration configuration)
         {
-            services.AddDasSwagger(configuration);
-            services.AddDasLogging(configuration);
+            services.AddDaaSwagger(configuration);
+            services.AddDaaLogging(configuration);
 
             return services;
         }
@@ -19,8 +19,8 @@ namespace DAA.Platform
         public static IApplicationBuilder UseDaaPlatform(this IApplicationBuilder app,
                                                          IConfiguration configuration)
         {
-            app.UseDasSwagger(configuration);
-            app.UseDasMiddleware();
+            app.UseDaaSwagger(configuration);
+            app.UseDaaMiddleware();
 
             return app;
         }

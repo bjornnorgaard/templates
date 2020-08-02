@@ -8,7 +8,7 @@ namespace DAA.Platform.Configurations
 {
     public static class SwaggerConfiguration
     {
-        public static void AddDasSwagger(this IServiceCollection services,
+        public static void AddDaaSwagger(this IServiceCollection services,
                                          IConfiguration configuration)
         {
             var options = new ApplicationOptions(configuration);
@@ -23,7 +23,7 @@ namespace DAA.Platform.Configurations
             });
         }
 
-        public static void UseDasSwagger(this IApplicationBuilder app,
+        public static void UseDaaSwagger(this IApplicationBuilder app,
                                          IConfiguration configuration)
         {
             var options = new ApplicationOptions(configuration);
