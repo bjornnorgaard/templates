@@ -25,3 +25,4 @@ This should become my new default template for web api projects.
 - [ ] CORS setup
 - [ ] Kubernetes support
 - [ ] HTTP resilience with Polly
+- [ ] Feature toggles
